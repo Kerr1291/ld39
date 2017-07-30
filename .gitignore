@@ -32,3 +32,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/ld39/.vs
+/ld39/Library
+/ld39/Temp
