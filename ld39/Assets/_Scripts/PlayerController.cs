@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
 
     void TryUse()
     {
-        if( Input.GetKeyDown( useKey ) )
+        if( Input.GetKeyDown( useKey ) || Input.GetKeyDown( moveKey ) )
         {
             if( canUse )
             {
@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
 
     void TryMove(KeyCode mKey)
     {
-        if( Input.GetKeyDown( mKey ) )
+        if( Input.GetKeyDown( useKey ) || Input.GetKeyDown( moveKey ) )
         {
             if( canMove )
             {
@@ -285,7 +285,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        TryMove(moveKey);
+        //changed to only use try-use for webgl
+        //TryMove(moveKey);
         TryUse();
         DebugDraw();
         if( willUse != null && DistToDestionation < .01f )
