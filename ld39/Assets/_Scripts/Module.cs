@@ -213,6 +213,7 @@ public class Module : MonoBehaviour
 
     public void Repair( float amount )
     {
+        Debug.Log( "REPAIR" );
         GameObject text = (GameObject)GameObject.Instantiate(floatingText);
         TextMesh tm = text.GetComponent<TextMesh>();
         text.transform.position = transform.position;
@@ -233,6 +234,7 @@ public class Module : MonoBehaviour
 
     public virtual bool Use( PlayerController player )
     {
+        Debug.Log( "USE" );
         if( Power >= MaxPower )
             return false;
 

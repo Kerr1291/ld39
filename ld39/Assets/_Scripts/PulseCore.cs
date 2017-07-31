@@ -83,12 +83,13 @@ public class PulseCore : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void OnEnable()
     {
         if( meshToPulse == null )
             meshToPulse = GetComponent<MeshRenderer>();
 
         StartCoroutine( RecoveryRoutine() );
+        StartCoroutine( Pulse() );
     }
 
     public float coreRecoveryAmount = .01f;
@@ -116,7 +117,7 @@ public class PulseCore : MonoBehaviour
         }
     }
 
-    IEnumerator Start()
+    IEnumerator Pulse()
     {
 
         for( ;;)

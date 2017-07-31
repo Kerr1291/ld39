@@ -85,6 +85,11 @@ public class PlayerController : MonoBehaviour
         StartCoroutine( UseModule() );
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine( UseModule() );
+    }
+
     IEnumerator UseModule()
     {
         for( ;;)
@@ -177,6 +182,7 @@ public class PlayerController : MonoBehaviour
 
                 if( found >= 0 )
                 {
+                    Debug.Log( "GOT A WILL USE! MOVE TO?" );
                     WillUse = null;
                     isUsing = null;
                     if( IsNearEnoughToUse( m ) )
@@ -293,11 +299,14 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter( Collider other )
     {
         Module m = other.gameObject.GetComponent<Module>();
+        Debug.Log( "ENTER" );
 
         if( m != null )
         {
+            Debug.Log( "WILL USE?" );
             if( WillUse != null && WillUse == m )
             {
+                Debug.Log( "WILL USE!" );
                 //Debug.Log( System.Reflection.MethodInfo.GetCurrentMethod().Name + " " + m.name );
                 WillUse = null;
                 isUsing = m;

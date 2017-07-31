@@ -43,11 +43,21 @@ public class PowerUp : MonoBehaviour
                 ShowText( Color.blue, "Core Health +20!" );
                 game.powerCore.CoreHealth += .2f;
             }
+
+
             if( type == PowerupType.Speed )
             {
-                game.Score += 10;
-                ShowText( Color.blue, "Speed up!" );
-                game.player.agent.speed += 1;
+                if( game.player.agent.speed > 7 )
+                {
+                    game.Score += 50;
+                    ShowText( Color.blue, "Speed Maxed! Extra Score!" );
+                }
+                else
+                {
+                    game.Score += 10;
+                    ShowText( Color.blue, "Speed up!" );
+                    game.player.agent.speed += 1;
+                }
             }
             if( type == PowerupType.SuperRepair )
             {

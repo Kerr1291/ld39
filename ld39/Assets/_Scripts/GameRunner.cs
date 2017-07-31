@@ -78,16 +78,26 @@ public class GameRunner : MonoBehaviour
     {
         if( allModules.Count < 1 )
             allModules = GameObject.FindObjectsOfType<Module>().ToList();
+
         foreach( var v in allModules )
         {
             v.Power = 1f;
-            v.gameObject.SetActive( true );
+            v.Active = true;
         }
 
         startScreen.SetActive( false );
         player.Active = true;
         levelRoot.SetActive( true );
         powerCore.CoreHealth = 1f;
+
+        if( !Application.isEditor )
+        {
+            if( startLevel != 1 )
+            {
+                startLevel = 1;
+            }
+        }
+
         levelSetup.Setup( this, startLevel );
         Score = 0;
     }
