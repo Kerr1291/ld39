@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PulseLight : MonoBehaviour {
-
+public class PulseLight : MonoBehaviour
+{
     public Light lightToPulse;
     public float pulseRate = 1f;
     public float pulseRange = 1f;
@@ -15,12 +15,12 @@ public class PulseLight : MonoBehaviour {
             lightToPulse = GetComponent<Light>();
     }
 
-    IEnumerator Start () {
-		
+    IEnumerator Start()
+    {
         for( ;;)
         {
             float amount = Time.fixedDeltaTime;
-            while(pulseMod < pulseRange)
+            while( pulseMod < pulseRange )
             {
                 pulseMod += amount * Time.timeScale * pulseRate;
 
@@ -38,5 +38,5 @@ public class PulseLight : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
         }
-	}
+    }
 }

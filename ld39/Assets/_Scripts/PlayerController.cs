@@ -39,6 +39,17 @@ public class PlayerController : MonoBehaviour
 
     public float useDelay = .1f;
 
+    public float repairPower = .1f;
+
+    public bool Active {
+        get {
+            return agent.gameObject.activeInHierarchy;
+        }
+        set {
+            agent.gameObject.SetActive( value );
+        }
+    }
+
     public float DistToDestionation {
         get {
             return ( destination - PlayerPos ).magnitude;
